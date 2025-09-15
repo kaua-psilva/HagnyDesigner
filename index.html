@@ -60,7 +60,7 @@
                 </form>
             </div>
 
-            <a href="#" class="link-button secondary">
+            <a href="#" class="link-button secondary" aria-label="Ver o portfólio de Hágnys no Instagram">
                 <i class="fab fa-instagram"></i> Instagram
             </a>
         </main>
@@ -69,12 +69,27 @@
     <script>
         document.getElementById('whatsapp-form').addEventListener('submit', function(event) {
     event.preventDefault();
-    const numero = '556599802047';
+    const numero = '556399626457';
+    
     const servico = document.getElementById('servico').value;
     const nome = document.getElementById('nome').value;
-    const mensagem = `Olá! Gostaria de agendar um horário.\n\nServiço: ${servico}\nNome: ${nome}\n\nAguardo seu retorno para combinarmos o melhor dia e horário.`;
-    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`; 
-    window.open(url, '_blank');
+
+    const botao = event.target.querySelector('button');
+    botao.disabled = true;
+    botao.innerHTML = '<i class="fab fa-whatsapp"></i> Redirecionando...';
+
+    const mensagem = `Olá! Gostaria de agendar um horário.\n\n*Serviço:* ${servico}\n*Nome:* ${nome}\n\nAguardo seu retorno para combinarmos o melhor dia e horário.`;
+    
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+    
+    setTimeout(() => {
+        window.open(url, '_blank');
+
+        setTimeout(() => {
+            botao.disabled = false;
+            botao.innerHTML = '<i class="fab fa-whatsapp"></i> Enviar e Agendar';
+        }, 2000);
+    }, 500);
 });
     </script>
 </body>

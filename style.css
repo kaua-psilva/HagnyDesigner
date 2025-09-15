@@ -210,3 +210,8 @@ main {
     from { transform: translate(0, 0) rotate(0deg); }
     to { transform: translate(-150px, 100px) rotate(-90deg); }
 }
+
+:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px #000000, 0 0 0 5px #C0A465;
+}
