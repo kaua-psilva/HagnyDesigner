@@ -35,26 +35,47 @@
         </header>
 
         <main>
-            <a href="https://WA.me/556399626457" class="link-button">
-                <i class="fab fa-whatsapp"></i> Agendar Horário
-            </a>
-            <a href="https://www.instagram.com/hagnys_designer/" class="link-button">
-                <i class="fab fa-instagram"></i> Rede Social
-            </a>
-            <div class="pricing-section">
-                <div class="price-card">
-                    <h3>Design Simples</h3>
-                    <p class="price">R$ 15</p>
-                    <p class="description">Alinhamento e limpeza, realçando seu formato natural.</p>
-                </div>
-                <div class="price-card featured">
-                    <span class="badge">Mais Popular</span>
-                    <h3>Design com Henna</h3>
-                    <p class="price">R$ 20</p>
-                    <p class="description">Cobertura de falhas e um efeito preenchido por mais tempo.</p>
-                </div>
+            <div id="agendamento" class="booking-form">
+                <h2>Agende seu horário</h2>
+                <p>Preencha os campos abaixo para iniciar seu agendamento via WhatsApp.</p>
+                
+                <form id="whatsapp-form">
+                    <div class="form-group">
+                        <label for="servico">Qual serviço você deseja?</label>
+                        <select id="servico" name="servico">
+                            <option value="Design Simples (R$ 15)">Design Simples (R$ 15)</option>
+                            <option value="Design com Henna (R$ 20)">Design com Henna (R$ 20)</option>
+                            <option value="Micropigmentação">Micropigmentação (Avaliação)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="nome">Seu nome</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+                    </div>
+                    
+                    <button type="submit" class="link-button form-button">
+                        <i class="fab fa-whatsapp"></i> Enviar e Agendar
+                    </button>
+                </form>
             </div>
+
+            <a href="#" class="link-button secondary">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
         </main>
     </div>
+
+    <script>
+        document.getElementById('whatsapp-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const numero = '556599802047';
+    const servico = document.getElementById('servico').value;
+    const nome = document.getElementById('nome').value;
+    const mensagem = `Olá! Gostaria de agendar um horário.\n\nServiço: ${servico}\nNome: ${nome}\n\nAguardo seu retorno para combinarmos o melhor dia e horário.`;
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`; 
+    window.open(url, '_blank');
+});
+    </script>
 </body>
 </html>

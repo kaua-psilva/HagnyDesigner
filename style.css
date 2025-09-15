@@ -61,12 +61,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: fadeInUp 0.5s ease-out forwards;
-    opacity: 0;
 }
-
-.link-button:nth-of-type(1) { animation-delay: 1.0s; }
-.link-button:nth-of-type(2) { animation-delay: 1.2s; }
 
 .link-button i {
     font-size: 22px;
@@ -86,66 +81,60 @@ main {
     opacity: 0.8;
 }
 
-.pricing-section {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
+.booking-form {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 2px solid #c0a56565;
+    border-radius: 15px;
+    padding: 30px;
     animation: fadeInUp 0.5s ease-out forwards;
     animation-delay: 0.6s;
     opacity: 0;
 }
 
-.price-card {
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 2px solid #c0a56565;
-    border-radius: 15px;
-    padding: 25px 20px;
-    text-align: center;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.price-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 0px 20px #c0a56533;
-}
-
-.price-card.featured {
-    border-color: #C0A465;
-    transform: scale(1.03);
-}
-
-.price-card h3 {
-    font-size: 1.1rem;
-    color: #FFFFFF;
-    margin-bottom: 10px;
-}
-
-.price-card .price {
-    font-size: 2.5rem;
-    font-weight: 700;
+.booking-form h2 {
     color: #C0A465;
     margin-bottom: 10px;
 }
 
-.price-card .description {
+.booking-form p {
     font-size: 0.85rem;
     color: #bbbbbb;
-    line-height: 1.5;
+    margin-bottom: 25px;
 }
 
-.price-card .badge {
-    position: absolute;
-    top: 15px;
-    right: -30px;
-    background-color: #C0A465;
-    color: #000000;
-    padding: 4px 30px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    transform: rotate(45deg);
+.form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid #c0a56565;
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.link-button.secondary {
+    background: transparent;
+    animation: fadeInUp 0.5s ease-out forwards;
+    animation-delay: 0.8s;
+    opacity: 0;
 }
 
 @keyframes fadeInDown {
@@ -175,4 +164,49 @@ main {
     opacity: 0.25;
     filter: blur(100px);
     animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.blob1 {
+    width: 400px;
+    height: 400px;
+    top: -100px;
+    left: -150px;
+    animation-name: move1;
+    animation-duration: 25s;
+}
+
+.blob2 {
+    width: 300px;
+    height: 300px;
+    bottom: -100px;
+    right: -100px;
+    animation-name: move2;
+    animation-duration: 20s;
+}
+
+.blob3 {
+    width: 250px;
+    height: 250px;
+    top: 200px;
+    right: -150px;
+    animation-name: move3;
+    animation-duration: 30s;
+    animation-delay: -10s;
+}
+
+@keyframes move1 {
+    from { transform: translate(0, 0) rotate(0deg); }
+    to { transform: translate(200px, 100px) rotate(180deg); }
+}
+
+@keyframes move2 {
+    from { transform: translate(0, 0) rotate(0deg); }
+    to { transform: translate(-200px, -150px) rotate(90deg); }
+}
+
+@keyframes move3 {
+    from { transform: translate(0, 0) rotate(0deg); }
+    to { transform: translate(-150px, 100px) rotate(-90deg); }
 }
